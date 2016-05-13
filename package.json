@@ -1,10 +1,13 @@
 {
   "name": "ago",
   "version": "1.0.0",
-  "description": "Relative timestamps for Javascript",
-  "main": "./js/src/index",
-  "license": "MIT",
+  "main": "js/src/index",
   "dependencies": {
-    "type-utils": "aleclarson/type-utils#1.0.0"
+    "isType": "aleclarson/isType#1.0.0"
+  },
+  "lotus": {
+    "plugins": [
+      "lotus-coffee"
+    ]
   }
 }

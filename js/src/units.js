@@ -97,7 +97,7 @@ ceilings = function() {
   d = divisors.w * 2;
   w = divisors.mo * 2;
   mo = divisors.y;
-  y = Infinity;
+  y = 2e308;
   return {
     ms: ms,
     s: s,

@@ -1,5 +1,6 @@
 
-{ isType } = require "type-utils"
+isType = require "isType"
+
 units = require "./units"
 
 ago = module.exports = (amount, unit) ->

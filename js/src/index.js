@@ -1,6 +1,6 @@
 var ago, isType, units;
 
-isType = require("type-utils").isType;
+isType = require("isType");
 
 units = require("./units");
 
