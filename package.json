@@ -1,0 +1,10 @@
+{
+  "name": "ago",
+  "version": "1.0.0",
+  "description": "Relative timestamps for Javascript",
+  "main": "./js/src/index",
+  "license": "MIT",
+  "dependencies": {
+    "type-utils": "aleclarson/type-utils#1.0.0"
+  }
+}
