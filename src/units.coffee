@@ -1,53 +1,49 @@
 
-labels = ->
+labels =
 
-  ms = "now"
+  ms: "now"
 
-  s = "now"
+  s: "now"
 
-  m = "%tm"
+  m: "%tm"
 
-  h = "%th"
+  h: "%th"
 
-  d = "%td"
+  d: "%td"
 
-  w = "%tw"
+  w: "%tw"
 
-  mo = "%tmo"
+  mo: "%tmo"
 
-  y = "%ty"
+  y: "%ty"
 
-  { ms, s, m, h, d, w, mo, y }
-
-factors = ->
+factors =
 
   # Milliseconds in a millisecond
-  ms = 1
+  ms: 1
 
   # Milliseconds in a second
-  s = 1000
+  s: 1000
 
   # Seconds in a minute
-  m = 60
+  m: 60
 
   # Minutes in an hour
-  h = 60
+  h: 60
 
   # Hours in a day
-  d = 24
+  d: 24
 
   # Days in a week
-  w = 7
+  w: 7
 
   # Days in a month (approximate)
-  mo = 30.4375
+  mo: 30.4375
 
   # Days in a year (approximate)
-  y = 365.25
+  y: 365.25
 
-  { ms, s, m, h, d, w, mo, y }
-
-quotients = ->
+quotients = do ->
 
   # Milliseconds in a millisecond
   ms = factors.ms
@@ -75,7 +71,7 @@ quotients = ->
 
   { ms, s, m, h, d, w, mo, y }
 
-divisors = ->
+divisors = do ->
 
   # Minutes in a millisecond
   ms = 1 / (factors.s * factors.m)
@@ -103,46 +99,36 @@ divisors = ->
 
   { ms, s, m, h, d, w, mo, y }
 
-ceilings = ->
+ceilings =
 
   # Minutes in a second
-  ms = divisors.s
+  ms: divisors.s
 
   # Minutes in a minute
-  s = divisors.m
+  s: divisors.m
 
   # Minutes in an hour
-  m = divisors.h
+  m: divisors.h
 
   # Minutes in two days
-  h = divisors.d * 2
+  h: divisors.d * 2
 
   # Minutes in a week
-  d = divisors.w * 2
+  d: divisors.w * 2
 
   # Minutes in two months (approximate)
-  w = divisors.mo * 2
+  w: divisors.mo * 2
 
   # Minutes in a year (approximate)
-  mo = divisors.y
+  mo: divisors.y
 
   # Minutes in forever (approximate)
-  y = Infinity
+  y: Infinity
 
-  { ms, s, m, h, d, w, mo, y }
-
-#
-# Initialization
-#
-
-labels = labels()
-
-factors = factors()
-
-divisors = divisors()
-
-quotients = quotients()
-
-ceilings = ceilings()
-
-module.exports = { labels, factors, divisors, quotients, ceilings }
+module.exports = {
+  labels
+  factors
+  divisors
+  quotients
+  ceilings
+}

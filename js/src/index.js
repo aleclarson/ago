@@ -1,25 +1,23 @@
-var ago, isType, units;
+var Number, ago, assertType, isType, units;
+
+Number = require("Nan").Number;
+
+assertType = require("assertType");
 
 isType = require("isType");
 
 units = require("./units");
 
-ago = module.exports = function(amount, unit) {
+ago = function(amount, unit) {
   var ms, now;
   now = Date.now();
   if (isType(amount, Date)) {
     return now - amount.getTime();
   }
-  if (!isType(amount, Number)) {
-    throw TypeError("'amount' must be a Number");
-  }
-  if (!isType(unit, String)) {
-    throw TypeError("'unit' must be a String");
-  }
+  assertType(amount, Number);
+  assertType(unit, String);
   ms = units.quotients[unit];
-  if (ms == null) {
-    throw Error("'unit' has an unexpected value");
-  }
+  assertType(ms, Number);
   return now - amount * ms;
 };
 
@@ -32,8 +30,8 @@ ago.toString = function(value, labels) {
   if (labels == null) {
     labels = units.labels;
   }
-  result = null;
   now = Date.now();
+  result = null;
   if (isType(value, Date)) {
     value = value.getTime();
   }
@@ -42,13 +40,16 @@ ago.toString = function(value, labels) {
   ref = units.divisors;
   for (unit in ref) {
     divisor = ref[unit];
-    if (diff < units.ceilings[unit]) {
-      count = String(Math.floor(diff / divisor));
-      result = labels[unit].replace("%t", count);
-      break;
+    if (diff > units.ceilings[unit]) {
+      continue;
     }
+    count = String(Math.floor(diff / divisor));
+    result = labels[unit].replace("%t", count);
+    break;
   }
   return result;
 };
 
-//# sourceMappingURL=../../map/src/index.map
+module.exports = ago;
+
+//# sourceMappingURL=map/index.map

@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "js/src/index",
   "dependencies": {
+    "Nan": "aleclarson/Nan#1.1.0",
+    "assertType": "aleclarson/assertType#1.0.0",
     "isType": "aleclarson/isType#1.0.0"
   },
   "lotus": {
