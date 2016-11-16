@@ -10,8 +10,8 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
-    "Nan": "aleclarson/Nan#1.1.0",
-    "assertType": "aleclarson/assertType#2.0.0",
-    "isType": "aleclarson/isType#1.0.0"
+    "Nan": "aleclarson/Nan#1.1.1",
+    "assertType": "aleclarson/assertType#2.0.1",
+    "isType": "aleclarson/isType#1.0.1"
   }
 }
