@@ -1,0 +1,10 @@
+{
+  "name": "ago",
+  "version": "1.1.0",
+  "main": "js/index",
+  "dependencies": {
+    "Nan": "aleclarson/Nan#1.1.1",
+    "assertType": "aleclarson/assertType#2.0.1",
+    "isType": "aleclarson/isType#1.0.1"
+  }
+}
